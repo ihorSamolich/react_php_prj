@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import MenuItem from "./ui/menuItem.tsx";
+import MenuItem from "./ui/linkNav.tsx";
 import {
   IconDashboard,
   IconHome,
@@ -36,8 +36,8 @@ const menu: MenuItem[] = [
     icon: <IconUsers />,
   },
   {
-    title: "Tasks",
-    path: "/tasks",
+    title: "Categories",
+    path: "/categories",
     icon: <IconListCheck />,
   },
   {
@@ -74,7 +74,7 @@ const Sidebar = () => {
 
           <div className="flex flex-col">
             <hr className="my-4 min-w-full" />
-            <ul className="flex min-w-full list-none flex-col gap-y-5">
+            <ul className="flex flex-col gap-y-5">
               {menu.map((menuItem) => (
                 <MenuItem key={menuItem.title} title={menuItem.title} path={menuItem.path} icon={menuItem.icon} />
               ))}

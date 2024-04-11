@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IconBell, IconMenu2, IconSettings, IconSquareRoundedX, IconUser } from "@tabler/icons-react";
 import { Input } from "./ui/input.tsx";
 import { classNames } from "../utils/classNames.ts";
-import MenuItem from "./ui/menuItem.tsx";
+import MenuItem from "./ui/linkNav.tsx";
 import { Button } from "./ui/button.tsx";
 import Breadcrumb from "./Breadcrumb.tsx";
 import Drawer from "./ui/drawer.tsx";
@@ -16,8 +16,8 @@ const AdminNavbar = ({ showSidebar, setShowSidebar }: AdminNavbarProps) => {
   const [openSettings, setOpenSettings] = useState<boolean>(false);
 
   return (
-    <nav className="px-3 py-6">
-      <div className="container flex max-w-full items-center  md:pl-10 md:pr-8">
+    <nav className="px-3 py-3 md:px-6">
+      <div className="container flex max-w-full items-center">
         <div className="flex items-center md:hidden">
           <button onClick={() => setShowSidebar(true)}>
             <IconMenu2 />
@@ -37,20 +37,21 @@ const AdminNavbar = ({ showSidebar, setShowSidebar }: AdminNavbarProps) => {
         <div className="flex w-full items-center justify-end lg:justify-between">
           <Breadcrumb />
 
-          <div className="flex gap-5">
-            <Input className="hidden md:flex" placeholder="Search..." />
-            <ul className="flex w-full list-none flex-col">
-              <MenuItem title="Sign In" path={"/sign-in"} icon={<IconUser />} variants="DARK" />
-            </ul>
-            <Button variant={"TOGGLE"}>
+          <div className="flex gap-2 md:gap-5">
+            <Input className="hidden md:flex" variant="search" placeholder="Search..." />
+
+            <MenuItem title="Sign In" path={"/sign-in"} icon={<IconUser />} variants="DARK" />
+
+            <Button size="icon" variant="icon">
               <IconBell />
             </Button>
-            <Button onClick={() => setOpenSettings(!openSettings)} variant={"TOGGLE"}>
+            <Button onClick={() => setOpenSettings(!openSettings)} size="icon" variant="icon">
               <IconSettings />
             </Button>
           </div>
         </div>
       </div>
+      <hr className="mt-4 min-w-full" />
 
       <Drawer open={openSettings} close={() => setOpenSettings(false)} />
     </nav>
