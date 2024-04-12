@@ -1,7 +1,6 @@
-import Sidebar from "../Sidebar.tsx";
+import Footer from "components/Footer.tsx";
+import Sidebar from "components/Sidebar.tsx";
 import { Outlet } from "react-router-dom";
-
-import Footer from "../Footer.tsx";
 
 const AdminLayout = () => {
   return (

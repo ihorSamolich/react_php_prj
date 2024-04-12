@@ -1,6 +1,6 @@
+import { VariantProps, cva } from "class-variance-authority";
 import React from "react";
-import { cva, VariantProps } from "class-variance-authority";
-import { classNames } from "../../utils/classNames.ts";
+import { classNames } from "utils/classNames.ts";
 
 const titleVariants = cva("text-xl font-semibold text-center");
 

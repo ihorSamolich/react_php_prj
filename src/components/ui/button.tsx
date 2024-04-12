@@ -1,6 +1,6 @@
+import { VariantProps, cva } from "class-variance-authority";
 import React from "react";
-import { classNames } from "../../utils/classNames.ts";
-import { cva, VariantProps } from "class-variance-authority";
+import { classNames } from "utils/classNames.ts";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold disabled:opacity-50 gap-3",

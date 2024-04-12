@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
 import { ReactNode } from "react";
-import { classNames } from "../../utils/classNames.ts";
+import { NavLink } from "react-router-dom";
+import { classNames } from "utils/classNames.ts";
 
 type MenuLinkProps = {
   title: string;

@@ -1,7 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment } from "react";
-import { Button } from "./button.tsx";
 import { IconX } from "@tabler/icons-react";
+import React, { Fragment } from "react";
+
+import { Button } from "./button.tsx";
 
 type ModalProps = {
   open: boolean;

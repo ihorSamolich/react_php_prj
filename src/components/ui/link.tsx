@@ -1,5 +1,5 @@
 import * as React from "react";
-import { classNames } from "../../utils/classNames.ts";
+import { classNames } from "utils/classNames.ts";
 
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 

@@ -1,5 +1,3 @@
-import { ReactNode, useState } from "react";
-import MenuItem from "./ui/linkNav.tsx";
 import {
   IconDashboard,
   IconHome,
@@ -9,9 +7,11 @@ import {
   IconTruckDelivery,
   IconUsers,
 } from "@tabler/icons-react";
-import AdminNavbar from "./AdminNavbar.tsx";
-import { classNames } from "../utils/classNames.ts";
-import { Link } from "./ui/link.tsx";
+import AdminNavbar from "components/AdminNavbar.tsx";
+import { Link } from "components/ui/link.tsx";
+import MenuItem from "components/ui/linkNav.tsx";
+import { ReactNode, useState } from "react";
+import { classNames } from "utils/classNames.ts";
 
 type MenuItem = {
   title: string;

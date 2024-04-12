@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import { IconBell, IconMenu2, IconSettings, IconSquareRoundedX, IconUser } from "@tabler/icons-react";
-import { Input } from "./ui/input.tsx";
-import { classNames } from "../utils/classNames.ts";
-import MenuItem from "./ui/linkNav.tsx";
-import { Button } from "./ui/button.tsx";
-import Breadcrumb from "./Breadcrumb.tsx";
-import Drawer from "./ui/drawer.tsx";
+import Breadcrumb from "components/Breadcrumb.tsx";
+import { Button } from "components/ui/button.tsx";
+import Drawer from "components/ui/drawer.tsx";
+import { Input } from "components/ui/input.tsx";
+import MenuItem from "components/ui/linkNav.tsx";
+import React, { useState } from "react";
+import { classNames } from "utils/classNames.ts";
 
 type AdminNavbarProps = {
   showSidebar: boolean;
