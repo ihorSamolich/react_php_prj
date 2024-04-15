@@ -15,3 +15,9 @@ export interface CreateCategory {
   image: File;
   description: string;
 }
+
+export interface EditCategory {
+  name: string;
+  image?: File;
+  description: string;
+}

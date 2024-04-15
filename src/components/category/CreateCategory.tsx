@@ -9,7 +9,7 @@ import Modal from "components/ui/modal.tsx";
 import Title from "components/ui/title.tsx";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useAddCategoryMutation } from "services/product";
+import { useAddCategoryMutation } from "services/category.ts";
 import { CreateCategorySchema, CreateCategorySchemaType } from "types/zod";
 import showToast from "utils/toastUtils.ts";
 

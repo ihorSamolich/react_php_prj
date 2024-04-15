@@ -1,0 +1,20 @@
+version: "3.9"
+networks:
+  myReactPhpNetwork:
+    driver: bridge
+
+services:
+   client:
+    container_name: client_reactPhp
+    image: ihorsamolich/react-php-project
+   
+    ports:
+      - "5050:5050" 
+    volumes:
+      - /data/ReactPhp/webvolume/client:/app/client
+    networks:
+      - myReactPhpNetwork
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Category, CreateCategory } from "types/types.ts";
+import { Category, CreateCategory, EditCategory } from "types/types.ts";
 import { API_URL } from "utils/apiUrl.ts";
 
 export const categoryApi = createApi({
@@ -32,6 +32,24 @@ export const categoryApi = createApi({
       invalidatesTags: ["Category"],
     }),
 
+    editCategory: builder.mutation({
+      query: ({ id, category }: { id: number; category: EditCategory }) => {
+        const categoryFormData = new FormData();
+        if (category.image) {
+          categoryFormData.append("image", category.image);
+        }
+        categoryFormData.append("name", category.name);
+        categoryFormData.append("description", category.description);
+
+        return {
+          url: `/categories/edit/${id}`,
+          method: "POST",
+          body: categoryFormData,
+        };
+      },
+      invalidatesTags: ["Category"],
+    }),
+
     deleteCategory: builder.mutation({
       query: (id) => ({
         url: `/categories/${id}`,
@@ -46,4 +64,5 @@ export const {
   useGetCategoryQuery,
   useAddCategoryMutation,
   useDeleteCategoryMutation,
+  useEditCategoryMutation,
 } = categoryApi;
