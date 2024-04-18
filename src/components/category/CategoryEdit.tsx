@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { IconCirclePlus, IconCircleX, IconLoader } from "@tabler/icons-react";
 import Spinner from "components/Spinner.tsx";
-import { Button } from "components/ui/button.tsx";
+import { Button } from "components/ui/Button/button.tsx";
 import FileUpload from "components/ui/fileUpload.tsx";
 import FormError from "components/ui/formError.tsx";
 import { Input } from "components/ui/input.tsx";

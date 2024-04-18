@@ -1,6 +1,6 @@
 import { IconBell, IconMenu2, IconSettings, IconSquareRoundedX, IconUser } from "@tabler/icons-react";
 import Breadcrumb from "components/Breadcrumb.tsx";
-import { Button } from "components/ui/button.tsx";
+import { Button } from "components/ui/Button/button.tsx";
 import Drawer from "components/ui/drawer.tsx";
 import { Input } from "components/ui/input.tsx";
 import MenuItem from "components/ui/linkNav.tsx";

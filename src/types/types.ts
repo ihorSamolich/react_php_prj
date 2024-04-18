@@ -21,3 +21,11 @@ export interface EditCategory {
   image?: File;
   description: string;
 }
+
+export interface Product extends Base {
+  name: string;
+  image: string;
+  description: string;
+  price: number;
+  category_id: number;
+}

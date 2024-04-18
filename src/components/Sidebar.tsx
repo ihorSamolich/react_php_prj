@@ -3,7 +3,6 @@ import {
   IconHome,
   IconHomeStats,
   IconListCheck,
-  IconMessageShare,
   IconTruckDelivery,
   IconUsers,
 } from "@tabler/icons-react";
@@ -24,11 +23,6 @@ const menu: MenuItem[] = [
     title: "Home",
     path: "/",
     icon: <IconHome />,
-  },
-  {
-    title: "Posts",
-    path: "/posts",
-    icon: <IconMessageShare />,
   },
   {
     title: "Users",
@@ -76,7 +70,12 @@ const Sidebar = () => {
             <hr className="my-4 min-w-full" />
             <ul className="flex flex-col gap-y-5">
               {menu.map((menuItem) => (
-                <MenuItem key={menuItem.title} title={menuItem.title} path={menuItem.path} icon={menuItem.icon} />
+                <MenuItem
+                  key={menuItem.title}
+                  title={menuItem.title}
+                  path={menuItem.path}
+                  icon={menuItem.icon}
+                />
               ))}
             </ul>
           </div>

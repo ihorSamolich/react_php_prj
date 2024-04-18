@@ -24,7 +24,7 @@ const HomePage = () => {
       <div className="flex items-center py-5 md:w-1/2 md:pb-20 md:pt-10 md:pl-10">
         <div className="relative w-full p-3 rounded  md:p-8">
           <div className="rounded-lg bg-white text-black w-full">
-            <img src="/public/heromonkey.png" alt="image" />
+            <img src="heromonkey.png" alt="image" />
           </div>
         </div>
       </div>

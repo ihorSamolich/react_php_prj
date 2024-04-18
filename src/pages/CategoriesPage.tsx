@@ -2,7 +2,7 @@ import { IconPencilPlus } from "@tabler/icons-react";
 import CategoryEdit from "components/category/CategoryEdit.tsx";
 import CategoryGrid from "components/category/CategoryGrid.tsx";
 import CreateCategory from "components/category/CreateCategory.tsx";
-import { Button } from "components/ui/button.tsx";
+import { Button } from "components/ui/Button/button.tsx";
 import { useState } from "react";
 import { useDeleteCategoryMutation, useGetCategoriesQuery } from "services/category.ts";
 import showToast from "utils/toastUtils.ts";
