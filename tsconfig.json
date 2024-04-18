@@ -25,6 +25,7 @@
     "paths": {
       "components/*": ["components/*"],
       "constants/*": ["constants/*"],
+      "assets/*": ["assets/*"],
       "hooks/*": ["hooks/*"],
       "pages/*": ["pages/*"],
       "services/*": ["services/*"],

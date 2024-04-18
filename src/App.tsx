@@ -1,3 +1,4 @@
+import CategoryDetail from "components/category/CategoryDetail.tsx";
 import AdminLayout from "components/layout/AdminLayout.tsx";
 import CategoriesPage from "pages/CategoriesPage.tsx";
 import HomePage from "pages/HomePage.tsx";
@@ -16,6 +17,7 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path="users" element={<UsersPage />} />
         <Route path="categories" element={<CategoriesPage />} />
+        <Route path="categories/:categoryId" element={<CategoryDetail />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

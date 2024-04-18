@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 import { classNames } from "utils/classNames.ts";
 
 type MenuLinkProps = {
-  title: string;
+  title: string | React.ReactNode;
   path: string;
   variants?: "PRIMARY" | "DARK";
   icon?: ReactNode;
