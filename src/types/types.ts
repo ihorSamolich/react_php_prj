@@ -24,8 +24,20 @@ export interface EditCategory {
 
 export interface Product extends Base {
   name: string;
-  image: string;
   description: string;
   price: number;
   category_id: number;
+  product_images: ProductImages[];
+}
+
+export interface ProductImages extends Base {
+  product_id: number;
+  priority: number;
+  name: string;
+}
+
+export interface SpecialOffer extends Base {
+  product_id: number;
+  image: number;
+  description: string;
 }
