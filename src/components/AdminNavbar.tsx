@@ -2,7 +2,6 @@ import { IconBell, IconMenu2, IconSettings, IconSquareRoundedX, IconUser } from 
 import Breadcrumb from "components/Breadcrumb.tsx";
 import { Button } from "components/ui/Button/button.tsx";
 import Drawer from "components/ui/drawer.tsx";
-import { Input } from "components/ui/input.tsx";
 import MenuItem from "components/ui/linkNav.tsx";
 import React, { useState } from "react";
 import { classNames } from "utils/classNames.ts";
@@ -38,8 +37,6 @@ const AdminNavbar = ({ showSidebar, setShowSidebar }: AdminNavbarProps) => {
           <Breadcrumb />
 
           <div className="flex gap-2 md:gap-5">
-            <Input className="hidden md:flex" variant="search" placeholder="Search..." />
-
             <MenuItem title="Sign In" path={"/sign-in"} icon={<IconUser />} variants="DARK" />
 
             <Button size="icon" variant="icon" aria-label="notification button">

@@ -6,14 +6,19 @@ import { generatePagination } from "utils/generatePagination.ts";
 
 export default function Pagination({ totalPages }: { totalPages: number }) {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const [currentPage, setCurrentPage] = useState(Number(searchParams.get("page")) || 1);
-
   const allPages = generatePagination(currentPage, totalPages);
 
   const handlePageChange = (pageNumber: number | string) => {
     setCurrentPage(Number(pageNumber));
-    setSearchParams({ page: pageNumber.toString() });
+
+    if (Number(pageNumber) > 1) {
+      searchParams.set("page", pageNumber.toString());
+      setSearchParams(searchParams);
+    } else {
+      searchParams.delete("page");
+      setSearchParams(searchParams);
+    }
   };
 
   return (

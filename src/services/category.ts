@@ -7,8 +7,8 @@ export const categoryApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: `${API_URL}/api` }),
   tagTypes: ["Category"],
   endpoints: (builder) => ({
-    getCategories: builder.query<CategoryResponse, number>({
-      query: (page) => `/categories?page=${page}`,
+    getCategories: builder.query<CategoryResponse, { page: number; search: string }>({
+      query: ({ page, search }) => `/categories?page=${page}&search=${search}`,
       providesTags: ["Category"],
     }),
 

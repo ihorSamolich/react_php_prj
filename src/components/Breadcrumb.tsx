@@ -5,11 +5,10 @@ const Breadcrumb = () => {
   const location: string = useLocation().pathname;
   const pathParts: string[] = location.split("/").filter((part) => part);
 
+  console.log(window.location.href);
+
   const breadcrumbs: { path: string; label: string }[] = pathParts.map((part, index) => {
     const path = `/${pathParts.slice(0, index + 1).join("/")}`;
-
-    console.log(path);
-
     return { path, label: part.toUpperCase() };
   });
 
