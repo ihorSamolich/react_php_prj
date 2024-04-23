@@ -6,7 +6,7 @@ const AdminLayout = () => {
   return (
     <div className="flex min-h-screen flex-col font-body">
       <Sidebar />
-      <div className="flex flex-grow flex-col justify-between px-6 md:ml-64">
+      <div className="px-6 flex flex-col flex-grow justify-between md:ml-64">
         <Outlet />
         <Footer />
       </div>

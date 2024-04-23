@@ -16,7 +16,7 @@ const LinkNav = ({ title, path, icon, variants }: MenuLinkProps) => {
         to={path}
         className={({ isActive }: { isActive: boolean }) =>
           classNames(
-            "flex items-center gap-4 rounded-lg px-2 py-1 text-sm font-semibold text-black hover:bg-gray-200 md:px-4 md:py-3",
+            "flex items-center gap-4 rounded-lg px-2  text-sm font-semibold text-black hover:bg-gray-200 md:px-4  py-3",
             isActive && "bg-black text-gray-50 shadow-md hover:bg-black",
             variants === "DARK" && "bg-black text-white  hover:bg-black",
           )

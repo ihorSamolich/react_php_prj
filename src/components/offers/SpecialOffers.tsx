@@ -10,10 +10,10 @@ const SpecialOffers: React.FC = () => {
   const { data } = useGetSpecialOffersQuery();
 
   return (
-    <div className="h-96">
+    <div className="h-[500px]">
       <Swiper
         // loop={true}
-        spaceBetween={30}
+        // spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 5000,

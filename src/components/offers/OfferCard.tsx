@@ -8,14 +8,9 @@ const OfferCard = (props: SpecialOffer) => {
   const { image, description } = props;
 
   return (
-    <div className="relative h-full rounded-3xl overflow-hidden">
-      {/*<img*/}
-      {/*  className="w-full  h-full object-fill"*/}
-      {/*  src={`${API_URL}/uploads/1200_${image}`}*/}
-      {/*  alt={description}*/}
-      {/*/>*/}
-
+    <div className="relative h-full  overflow-hidden">
       <img
+        loading="lazy"
         src={`${API_URL}/uploads/1200_${image}`}
         alt={description}
         className="h-full w-full object-cover object-center"

@@ -4,15 +4,18 @@ import CategoryGrid from "components/category/CategoryGrid.tsx";
 import CreateCategory from "components/category/CreateCategory.tsx";
 import { Button } from "components/ui/Button/button.tsx";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useDeleteCategoryMutation, useGetCategoriesQuery } from "services/category.ts";
 import showToast from "utils/toastUtils.ts";
 
 const CategoriesPage = () => {
+  const [searchParams] = useSearchParams();
+
   const [createModalOpen, setCreateModalOpen] = useState<boolean>(false);
   const [editModalOpen, setEditModalOpen] = useState<boolean>(false);
   const [currentCategory, setCurrentCategory] = useState<number | null>(null);
 
-  const { data, isLoading } = useGetCategoriesQuery();
+  const { data: categories, isLoading } = useGetCategoriesQuery(Number(searchParams.get("page")) || 1);
   const [deleteCategory] = useDeleteCategoryMutation();
 
   const handleDeleteCategory = async (id: number) => {
@@ -38,7 +41,7 @@ const CategoriesPage = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="mb-3 flex flex-row-reverse">
         <Button variant="outlined" size="lg" onClick={() => setCreateModalOpen(true)}>
           <IconPencilPlus />
@@ -46,7 +49,8 @@ const CategoriesPage = () => {
         </Button>
       </div>
       <CategoryGrid
-        categories={data}
+        categories={categories?.data}
+        totalPages={categories?.last_page}
         edit={handleEditCategory}
         remove={handleDeleteCategory}
         isLoading={isLoading}
@@ -55,7 +59,7 @@ const CategoriesPage = () => {
       {editModalOpen && currentCategory && (
         <CategoryEdit id={currentCategory} open={editModalOpen} close={() => setEditModalOpen(false)} />
       )}
-    </>
+    </div>
   );
 };
 

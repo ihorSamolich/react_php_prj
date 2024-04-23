@@ -31,7 +31,7 @@ const CategoryCard = (props: CategoryCardProps) => {
       </div>
 
       <div className="group/item absolute w-full h-full">
-        <Link to={`/categories/${id}`}>
+        <Link aria-label={`Open category ${name}`} to={`/categories/${id}`}>
           <div className="absolute bg-black/70 text-white opacity-0 top-1/3 w-full invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-300 ease-in">
             <Title className="cursor-pointer py-6 font-title">
               Show category <IconExternalLink />
@@ -44,6 +44,7 @@ const CategoryCard = (props: CategoryCardProps) => {
         className="h-64 w-full rounded-t-lg object-cover object-top"
         src={`${API_URL}/uploads/500_${image}`}
         alt={description}
+        loading="lazy"
       />
       <div className="flex flex-grow flex-col overflow-hidden m-5">
         <h5 className="mb-2 text-2xl font-bold uppercase truncate tracking-tight text-gray-900 dark:text-white">

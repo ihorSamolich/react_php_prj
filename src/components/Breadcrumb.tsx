@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
 import { IconHome } from "@tabler/icons-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Breadcrumb = () => {
   const location: string = useLocation().pathname;
@@ -7,6 +7,9 @@ const Breadcrumb = () => {
 
   const breadcrumbs: { path: string; label: string }[] = pathParts.map((part, index) => {
     const path = `/${pathParts.slice(0, index + 1).join("/")}`;
+
+    console.log(path);
+
     return { path, label: part.toUpperCase() };
   });
 
@@ -15,7 +18,11 @@ const Breadcrumb = () => {
       <nav className="rounded-md bg-white text-sm font-bold">
         <ol className="flex list-none items-center justify-center p-0">
           <li className="flex items-center">
-            <Link to="/" className="text-gray-600 transition-colors duration-300 hover:text-black">
+            <Link
+              to="/"
+              className="text-gray-600 transition-colors duration-300 hover:text-black"
+              aria-label="breadcumbs"
+            >
               <IconHome />
             </Link>
             {breadcrumbs.length > 0 && <span className="mx-2">/</span>}

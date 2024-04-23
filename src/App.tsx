@@ -9,8 +9,6 @@ import { Route, Routes } from "react-router-dom";
 import "./index.css";
 
 export default function App() {
-  console.log("render app");
-
   return (
     <Routes>
       <Route path="/" element={<AdminLayout />}>

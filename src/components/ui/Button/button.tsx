@@ -11,7 +11,7 @@ const buttonVariants = cva(
           "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br",
         cancel: "text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br",
         yellow: "text-white bg-orange-500 hover:bg-orange-500/80 px-5 py-2.5 text-center ",
-        outlined: "border border-black border-dashed hover:bg-gray-200", //+++
+        outlined: "border border-black border-dashed hover:bg-gray-200  ", //+++
         icon: "hover:bg-gray-200", //+++
       },
       size: {

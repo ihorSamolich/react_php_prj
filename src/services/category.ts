@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Category, CreateCategory, EditCategory } from "types/types.ts";
+import { Category, CategoryResponse, CreateCategory, EditCategory } from "types/types.ts";
 import { API_URL } from "utils/apiUrl.ts";
 
 export const categoryApi = createApi({
@@ -7,8 +7,8 @@ export const categoryApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: `${API_URL}/api` }),
   tagTypes: ["Category"],
   endpoints: (builder) => ({
-    getCategories: builder.query<Category[], void>({
-      query: () => "/categories",
+    getCategories: builder.query<CategoryResponse, number>({
+      query: (page) => `/categories?page=${page}`,
       providesTags: ["Category"],
     }),
 

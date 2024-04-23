@@ -42,10 +42,15 @@ const AdminNavbar = ({ showSidebar, setShowSidebar }: AdminNavbarProps) => {
 
             <MenuItem title="Sign In" path={"/sign-in"} icon={<IconUser />} variants="DARK" />
 
-            <Button size="icon" variant="icon">
+            <Button size="icon" variant="icon" aria-label="notification button">
               <IconBell />
             </Button>
-            <Button onClick={() => setOpenSettings(!openSettings)} size="icon" variant="icon">
+            <Button
+              onClick={() => setOpenSettings(!openSettings)}
+              aria-label="setting button"
+              size="icon"
+              variant="icon"
+            >
               <IconSettings />
             </Button>
           </div>

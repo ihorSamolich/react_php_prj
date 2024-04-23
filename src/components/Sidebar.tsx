@@ -68,7 +68,7 @@ const Sidebar = () => {
 
           <div className="flex flex-col">
             <hr className="my-4 min-w-full" />
-            <ul className="flex flex-col gap-y-5">
+            <div className="flex flex-col gap-y-5">
               {menu.map((menuItem) => (
                 <MenuItem
                   key={menuItem.title}
@@ -77,7 +77,7 @@ const Sidebar = () => {
                   icon={menuItem.icon}
                 />
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

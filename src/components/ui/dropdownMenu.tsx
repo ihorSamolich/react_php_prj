@@ -10,7 +10,10 @@ const DropdownMenu = ({ children }: DropdownMenuProps) => {
   return (
     <Menu as="div" className="relative">
       <div>
-        <Menu.Button className="inline-flex rounded-full justify-center bg-black/70 p-2 text-sm font-medium text-white hover:bg-black/90 ">
+        <Menu.Button
+          aria-label="open menu"
+          className="inline-flex rounded-full justify-center bg-black/70 p-2 text-sm font-medium text-white hover:bg-black/90 "
+        >
           <IconDotsVertical />
         </Menu.Button>
       </div>
@@ -46,6 +49,7 @@ const DropdownMenuItem = (props: DropdownMenuItemProps) => {
         {({ active }) => (
           <button
             onClick={onClick}
+            aria-label="menu item"
             className={classNames(
               "group flex w-full items-center rounded-md px-2 py-2 text-sm gap-2",
               active ? "bg-black text-white" : "text-gray-900",

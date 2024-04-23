@@ -10,6 +10,7 @@ const ProductCard = (product: Product) => {
     <div className="border border-gray-200 max-w-[315px] bg-white shadow-2xl rounded-2xl">
       <div className="relative rounded-t-2xl w-full overflow-hidden">
         <img
+          loading="lazy"
           className="h-64 w-full object-cover object-center"
           src={`${API_URL}/uploads/500_${product_images[0].name}`}
           alt={name}

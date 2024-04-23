@@ -41,3 +41,18 @@ export interface SpecialOffer extends Base {
   image: number;
   description: string;
 }
+
+export interface PaginationData {
+  current_page: number;
+  per_page: number;
+  last_page: number;
+  total: number;
+}
+
+export interface CategoryResponse extends PaginationData {
+  data: Category[];
+}
+
+export interface ProductResponse extends PaginationData {
+  data: Product[];
+}
