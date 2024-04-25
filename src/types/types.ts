@@ -1,6 +1,6 @@
 interface Base {
   id: number;
-  creationAt: string;
+  created_at: string;
   updatedAt: string;
 }
 
@@ -55,4 +55,24 @@ export interface CategoryResponse extends PaginationData {
 
 export interface ProductResponse extends PaginationData {
   data: Product[];
+}
+
+export interface User extends Base {
+  email: string;
+  email_verified_at: string | null;
+  image: string;
+  name: string;
+  phone: string;
+}
+
+export interface LoginResponse {
+  token: string;
+}
+
+export interface CreateUser {
+  name: string;
+  image: File;
+  email: string;
+  password: string;
+  phone: string;
 }

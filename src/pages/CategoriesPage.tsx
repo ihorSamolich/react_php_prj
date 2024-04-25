@@ -57,7 +57,7 @@ const CategoriesPage = () => {
 
   return (
     <div>
-      <div className="mb-3 flex flex-row-reverse justify-between">
+      <div className="mb-3 flex flex-col sm:flex-row-reverse justify-between gap-y-3">
         <Button variant="outlined" size="lg" onClick={() => setCreateModalOpen(true)}>
           <IconPencilPlus />
           Add new category
@@ -68,7 +68,7 @@ const CategoriesPage = () => {
           onChange={(e) => {
             handleSearch(e.target.value);
           }}
-          className="hidden md:flex"
+          className="flex"
           variant="search"
           placeholder="Search..."
         />

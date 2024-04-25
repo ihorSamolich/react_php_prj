@@ -37,7 +37,7 @@ const AdminNavbar = ({ showSidebar, setShowSidebar }: AdminNavbarProps) => {
           <Breadcrumb />
 
           <div className="flex gap-2 md:gap-5">
-            <MenuItem title="Sign In" path={"/sign-in"} icon={<IconUser />} variants="DARK" />
+            <MenuItem title="Sign In" path={"/login"} icon={<IconUser />} variants="DARK" />
 
             <Button size="icon" variant="icon" aria-label="notification button">
               <IconBell />
