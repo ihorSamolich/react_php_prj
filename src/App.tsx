@@ -1,4 +1,5 @@
 import AdminLayout from "components/layout/AdminLayout.tsx";
+import AdminAuth from "components/role-based/AdminAuth.tsx";
 import CategoriesPage from "pages/CategoriesPage.tsx";
 import HomePage from "pages/HomePage.tsx";
 import LoginPage from "pages/LoginPage.tsx";
@@ -15,9 +16,12 @@ export default function App() {
     <Routes>
       <Route path="/" element={<AdminLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="users" element={<UsersPage />} />
-        <Route path="categories" element={<CategoriesPage />} />
-        <Route path="categories/:categoryId" element={<ProductsPage />} />
+
+        <Route element={<AdminAuth />}>
+          <Route path="users" element={<UsersPage />} />
+          <Route path="categories" element={<CategoriesPage />} />
+          <Route path="categories/:categoryId" element={<ProductsPage />} />
+        </Route>
 
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />

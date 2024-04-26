@@ -76,3 +76,13 @@ export interface CreateUser {
   password: string;
   phone: string;
 }
+
+export interface CurrentUser {
+  email: string;
+  name: string;
+}
+
+export interface AuthState {
+  user: CurrentUser | null;
+  token: string | null;
+}

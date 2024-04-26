@@ -105,7 +105,7 @@ const CategoryEdit = (props: EditCategoryProps) => {
               ) : (
                 <>
                   <IconCirclePlus />
-                  Create
+                  Save
                 </>
               )}
             </Button>

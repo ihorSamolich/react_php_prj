@@ -55,7 +55,7 @@ export const CreateUserSchema = z
       .trim()
       .min(3)
       .max(20)
-      .regex(/^[a-zA-Z]+$/, "Only letters are allowed"),
+      .regex(/^[a-zA-Zа-яА-ЯґҐєЄіІїЇ\s]+$/, "Only letters are allowed"),
     image: z
       .any()
       .refine((files) => files?.length == 1, "Image is required.")

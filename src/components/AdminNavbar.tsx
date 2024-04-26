@@ -3,7 +3,10 @@ import Breadcrumb from "components/Breadcrumb.tsx";
 import { Button } from "components/ui/Button/button.tsx";
 import Drawer from "components/ui/drawer.tsx";
 import MenuItem from "components/ui/linkNav.tsx";
+import UserCurrent from "components/user/UserCurrent.tsx";
 import React, { useState } from "react";
+import { selectCurrentUser } from "store/slice/authSlice.ts";
+import { useAppSelector } from "store/store.ts";
 import { classNames } from "utils/classNames.ts";
 
 type AdminNavbarProps = {
@@ -13,6 +16,8 @@ type AdminNavbarProps = {
 
 const AdminNavbar = ({ showSidebar, setShowSidebar }: AdminNavbarProps) => {
   const [openSettings, setOpenSettings] = useState<boolean>(false);
+
+  const user = useAppSelector(selectCurrentUser);
 
   return (
     <nav className="px-3 py-3 md:px-6">
@@ -37,7 +42,11 @@ const AdminNavbar = ({ showSidebar, setShowSidebar }: AdminNavbarProps) => {
           <Breadcrumb />
 
           <div className="flex gap-2 md:gap-5">
-            <MenuItem title="Sign In" path={"/login"} icon={<IconUser />} variants="DARK" />
+            {!user ? (
+              <MenuItem title="Sign In" path={"/login"} icon={<IconUser />} variants="DARK" />
+            ) : (
+              <UserCurrent {...user} />
+            )}
 
             <Button size="icon" variant="icon" aria-label="notification button">
               <IconBell />

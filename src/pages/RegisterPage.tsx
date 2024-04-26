@@ -6,6 +6,7 @@ import { Input } from "components/ui/input.tsx";
 import Label from "components/ui/label.tsx";
 import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useAddUserMutation } from "services/auth.ts";
 import { CreateUserSchema, CreateUserSchemaType } from "types/zod";
 import showToast from "utils/toastUtils.ts";
@@ -17,8 +18,9 @@ const RegisterPage = () => {
     formState: { errors },
   } = useForm<CreateUserSchemaType>({ resolver: zodResolver(CreateUserSchema) });
 
-  const [addUser] = useAddUserMutation();
+  const [addUser, { isLoading }] = useAddUserMutation();
   const [previewImage, setPreviewImage] = useState<string | undefined>();
+  const navigate = useNavigate();
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target;
@@ -37,7 +39,7 @@ const RegisterPage = () => {
     try {
       await addUser({ ...data, image: data.image[0] }).unwrap();
       showToast(`User ${data.name} successful created!`, "success");
-      close();
+      navigate("/login");
     } catch (err) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
@@ -112,7 +114,7 @@ const RegisterPage = () => {
             {errors?.image && <FormError errorMessage={errors?.image?.message as string} />}
 
             <div>
-              <Button variant="yellow" size="full" type="submit">
+              <Button disabled={isLoading} variant="yellow" size="full" type="submit">
                 Sign in
               </Button>
             </div>

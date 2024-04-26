@@ -14,6 +14,7 @@ export const categoryApi = createApi({
 
     getCategory: builder.query<Category, number>({
       query: (id) => `/categories/${id}`,
+      providesTags: (_result, _error, arg) => [{ type: "Category", id: arg }],
     }),
 
     addCategory: builder.mutation({
@@ -49,7 +50,7 @@ export const categoryApi = createApi({
           body: categoryFormData,
         };
       },
-      invalidatesTags: ["Category"],
+      invalidatesTags: (_result, _error, arg) => [{ type: "Category", id: arg.id }, "Category"],
     }),
 
     deleteCategory: builder.mutation({
