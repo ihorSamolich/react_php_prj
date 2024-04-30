@@ -48,6 +48,8 @@ const CategoriesPage = () => {
   const handleSearch = useDebouncedCallback((term) => {
     if (term) {
       searchParams.set("search", term);
+      searchParams.set("page", "1");
+
       setSearchParams(searchParams);
     } else {
       searchParams.delete("search");

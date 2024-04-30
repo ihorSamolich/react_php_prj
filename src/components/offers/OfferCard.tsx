@@ -17,16 +17,16 @@ const OfferCard = (props: SpecialOffer) => {
       />
 
       <div className="absolute bottom-0 left-0 right-0   ">
-        <Text variant="cardTitle" size="md" className="text-red-600 bg-yellow-500/80 p-6">
+        <Text variant="cardTitle" size="md" className="text-red-600 bg-yellow-500/80 p-5">
           {description}
         </Text>
       </div>
-      <Button className="absolute bottom-1/4 right-2" variant="yellow">
+      <Button className="absolute bottom-1/3 right-2" variant="yellow">
         <IconRosetteDiscount />
         Read more...
       </Button>
 
-      <img className="absolute top-0 right-0 w-40" src="special_offer.png" alt="special offer" />
+      <img className="absolute top-0 right-0 w-40" src="/special_offer.png" alt="special offer" />
     </div>
   );
 };

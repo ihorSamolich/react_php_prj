@@ -30,6 +30,12 @@ export interface Product extends Base {
   product_images: ProductImages[];
 }
 
+export interface ProductWithDiscount extends Product {
+  discount_end_date: string;
+  discount_percentage: number;
+  discount_start_date: string;
+}
+
 export interface ProductImages extends Base {
   product_id: number;
   priority: number;
@@ -80,6 +86,7 @@ export interface CreateUser {
 export interface CurrentUser {
   email: string;
   name: string;
+  image: string;
 }
 
 export interface AuthState {

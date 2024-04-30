@@ -6,6 +6,7 @@ const textVariants = cva("font-sans", {
   variants: {
     variant: {
       default: "",
+      blockTitle: "text-center uppercase font-title font-bold py-5",
       cardTitle: "text-black text-center font-title truncate font-bold",
       description: "text-grey font-bold",
       header: "text-white font-extrabold",
@@ -16,6 +17,7 @@ const textVariants = cva("font-sans", {
       xs: "text-lg",
       sm: "text-xl",
       md: "text-3xl",
+      emd: "text-4xl",
       lg: "text-6xl",
     },
   },

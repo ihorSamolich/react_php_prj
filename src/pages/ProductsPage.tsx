@@ -20,7 +20,7 @@ const ProductsPage = () => {
       <div className="mb-3 flex flex-row ">
         <Button variant="outlined" onClick={() => navigate(-1)}>
           <IconArrowBackUp />
-          Return to category
+          Back
         </Button>
       </div>
       <ProductGrid products={data?.data} totalPages={data?.last_page} isLoading={isLoading} />

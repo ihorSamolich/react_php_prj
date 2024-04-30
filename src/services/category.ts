@@ -24,8 +24,6 @@ export const categoryApi = createApi({
         categoryFormData.append("name", category.name);
         categoryFormData.append("description", category.description);
 
-        console.log(categoryFormData.get("image"));
-
         return {
           url: "/categories/create",
           method: "POST",

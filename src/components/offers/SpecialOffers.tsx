@@ -1,4 +1,5 @@
 import OfferCard from "components/offers/OfferCard.tsx";
+import OfferCardSkeleton from "components/offers/OfferCardSkeleton.tsx";
 import React from "react";
 import { useGetSpecialOffersQuery } from "services/offers.ts";
 import "swiper/css";
@@ -7,13 +8,11 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const SpecialOffers: React.FC = () => {
-  const { data } = useGetSpecialOffersQuery();
+  const { data, isLoading } = useGetSpecialOffersQuery();
 
   return (
-    <div className="h-[500px]">
+    <div className="h-[300px]">
       <Swiper
-        // loop={true}
-        // spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 5000,
@@ -25,6 +24,11 @@ const SpecialOffers: React.FC = () => {
         modules={[Autoplay, Pagination]}
         className="w-full h-full"
       >
+        {isLoading && (
+          <SwiperSlide>
+            <OfferCardSkeleton />
+          </SwiperSlide>
+        )}
         {data?.map((offer) => (
           <SwiperSlide key={offer.id}>
             <OfferCard {...offer} />
