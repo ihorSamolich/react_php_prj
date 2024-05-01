@@ -87,6 +87,7 @@ export interface CurrentUser {
   email: string;
   name: string;
   image: string;
+  verified: string;
 }
 
 export interface AuthState {

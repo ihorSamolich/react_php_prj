@@ -1,6 +1,7 @@
 import AdminLayout from "components/layout/AdminLayout.tsx";
 import AdminAuth from "components/role-based/AdminAuth.tsx";
 import CategoriesPage from "pages/CategoriesPage.tsx";
+import EmailConfirmPage from "pages/EmailConfirm.tsx";
 import HomePage from "pages/HomePage.tsx";
 import LoginPage from "pages/LoginPage.tsx";
 import NotFoundPage from "pages/NotFoundPage.tsx";
@@ -25,6 +26,7 @@ export default function App() {
 
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
+        <Route path="confirm-email" element={<EmailConfirmPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
