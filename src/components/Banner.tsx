@@ -1,8 +1,27 @@
-import { IconSend, IconX } from "@tabler/icons-react";
+import { IconLoader, IconSend, IconX } from "@tabler/icons-react";
 import { useState } from "react";
+import { useVerifyMutation } from "services/auth.ts";
+import { selectCurrentUser } from "store/slice/authSlice.ts";
+import { useAppSelector } from "store/store.ts";
+import showToast from "utils/toastUtils.ts";
 
 export default function Banner() {
   const [showBanner, setShowBanner] = useState<boolean>(true);
+  const [verify, { isLoading }] = useVerifyMutation();
+  const user = useAppSelector(selectCurrentUser);
+
+  const handleConfirmEmail = async () => {
+    if (user) {
+      const res = await verify({ email: user.email });
+
+      if ("data" in res) {
+        setShowBanner(false);
+        showToast(`Verification email sent to ${user.email}! Check your inbox.`, "success");
+      } else {
+        showToast(`Error sent verification email!`, "error");
+      }
+    }
+  };
 
   return (
     showBanner && (
@@ -31,23 +50,27 @@ export default function Banner() {
             }}
           />
         </div>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p className="text-sm leading-6 text-white">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+          <p className=" text-sm leading-6 text-white">
             <strong className="font-semibold">Email is not verified</strong>
-            <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
+            <svg
+              viewBox="0 0 2 2"
+              className="hidden xl:inline mx-2 h-0.5 w-0.5 fill-current"
+              aria-hidden="true"
+            >
               <circle cx={1} cy={1} r={1} />
             </svg>
-            Please confirm your email to get full access.
+            <strong className="hidden xl:inline">Please confirm your email to get full access.</strong>
           </p>
-          <a
-            href="#"
-            className="flex items-center gap-x-2 rounded-full bg-white px-3.5 py-1 text-sm font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+          <button
+            disabled={isLoading}
+            type="button"
+            onClick={handleConfirmEmail}
+            className="flex items-center gap-x-2 rounded-full bg-white px-3.5 py-1 text-sm font-semibold text-black shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 disabled:bg-gray-400 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
           >
             Send email
-            <span aria-hidden="true">
-              <IconSend />
-            </span>
-          </a>
+            <span aria-hidden="true">{!isLoading ? <IconSend /> : <IconLoader />}</span>
+          </button>
         </div>
         <div className="flex flex-1 justify-end">
           <button

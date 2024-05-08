@@ -39,6 +39,32 @@ export const authApi = createApi({
         };
       },
     }),
+
+    loginWithGoogle: builder.mutation<LoginResponse, { email: string; name: string; image: string }>({
+      query: (data) => {
+        return {
+          url: "/login/google",
+          method: "POST",
+          body: data,
+        };
+      },
+    }),
+
+    verify: builder.mutation<unknown, { email: string }>({
+      query: (data) => {
+        return {
+          url: "/verification",
+          method: "POST",
+          body: data,
+        };
+      },
+    }),
   }),
 });
-export const { useGetUsersQuery, useAddUserMutation, useLoginMutation } = authApi;
+export const {
+  useGetUsersQuery,
+  useVerifyMutation,
+  useAddUserMutation,
+  useLoginMutation,
+  useLoginWithGoogleMutation,
+} = authApi;

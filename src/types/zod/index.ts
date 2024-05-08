@@ -69,3 +69,21 @@ export const CreateUserSchema = z
     message: "Passwords don't match",
     path: ["confirmPassword"],
   });
+
+//* Product types *//
+
+export type CreateProductSchemaType = z.infer<typeof CreateProductSchema>;
+
+export const CreateProductSchema = z.object({
+  name: z.string().min(3).max(20),
+  description: z.string().min(3).max(50),
+  price: z.string().min(0.01),
+  category_id: z
+    .string()
+    .refine((val) => !isNaN(parseFloat(val)), {
+      message: "Category is required",
+    })
+    .transform((val) => parseInt(val))
+    .refine((val) => val > 0, { message: "Category is required" }),
+  product_images: z.any(),
+});

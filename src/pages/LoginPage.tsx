@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import GoogleAuth from "components/GoogleAuth.tsx";
 import { Button } from "components/ui/Button/button.tsx";
 import FormError from "components/ui/formError.tsx";
 import { Input } from "components/ui/input.tsx";
@@ -50,7 +51,7 @@ const LoginPage = () => {
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img className="mx-auto h-10 w-auto" src="shop.ico" alt="Your Company" />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
         </div>
@@ -96,6 +97,10 @@ const LoginPage = () => {
               </Button>
             </div>
           </form>
+
+          <div className="mt-2 flex justify-center">
+            <GoogleAuth />
+          </div>
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{" "}

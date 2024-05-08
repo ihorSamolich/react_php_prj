@@ -4,6 +4,11 @@ interface Base {
   updatedAt: string;
 }
 
+export interface CategoryNames {
+  name: string;
+  id: number;
+}
+
 export interface Category extends Base {
   name: string;
   image: string;
@@ -28,6 +33,14 @@ export interface Product extends Base {
   price: number;
   category_id: number;
   product_images: ProductImages[];
+}
+
+export interface CreateProduct {
+  name: string;
+  description: string;
+  price: number;
+  category_id: number;
+  product_images: File[];
 }
 
 export interface ProductWithDiscount extends Product {
@@ -69,6 +82,12 @@ export interface User extends Base {
   image: string;
   name: string;
   phone: string;
+}
+
+export interface LoginGoogle {
+  email: string;
+  name: string;
+  picture: string;
 }
 
 export interface LoginResponse {
