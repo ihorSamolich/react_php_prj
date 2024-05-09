@@ -22,7 +22,11 @@ const UserCard = (props: User) => {
         </div>
       </div>
       <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-        <p className="text-sm leading-6 text-gray-900">{phone}</p>
+        {phone === "Google account" ? (
+          <img src="/Google-Cloud.png" alt="Google Cloud" className="w-auto h-6" />
+        ) : (
+          <p className="text-sm leading-6 text-gray-900">{phone}</p>
+        )}
         <p className="mt-1 text-xs leading-5 text-gray-500">{email}</p>
       </div>
     </li>
