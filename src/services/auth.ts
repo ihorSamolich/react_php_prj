@@ -40,7 +40,7 @@ export const authApi = createApi({
       },
     }),
 
-    loginWithGoogle: builder.mutation<LoginResponse, { email: string; name: string; image: string }>({
+    loginWithGoogle: builder.mutation<LoginResponse, { token: string }>({
       query: (data) => {
         return {
           url: "/login/google",
