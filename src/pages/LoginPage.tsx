@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import GoogleAuth from "components/GoogleAuth.tsx";
+import ReCaptchaProvider from "components/ReCaptchaProvider.tsx";
 import { Button } from "components/ui/Button/button.tsx";
 import FormError from "components/ui/formError.tsx";
 import { Input } from "components/ui/input.tsx";
@@ -47,7 +48,7 @@ const LoginPage = () => {
   });
 
   return (
-    <>
+    <ReCaptchaProvider>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img className="mx-auto h-10 w-auto" src="shop.ico" alt="Your Company" />
@@ -110,7 +111,7 @@ const LoginPage = () => {
           </p>
         </div>
       </div>
-    </>
+    </ReCaptchaProvider>
   );
 };
 
