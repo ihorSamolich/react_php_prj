@@ -129,7 +129,7 @@ const CreateProduct = (props: CreateProductProps) => {
         {errors?.category_id && <FormError errorMessage={errors?.category_id?.message as string} />}
 
         <Label htmlFor="product_images">Images</Label>
-        <ImageUploadMulti remove={removeImage} files={files}>
+        <ImageUploadMulti setFiles={setFiles} remove={removeImage} files={files}>
           <Input
             {...register("product_images")}
             onChange={handleFileChange}
