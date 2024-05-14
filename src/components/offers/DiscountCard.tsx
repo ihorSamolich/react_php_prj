@@ -12,7 +12,7 @@ const DiscountCard: React.FC<ProductWithDiscount> = (props) => {
       <div className="relative rounded-2xl w-full overflow-hidden">
         <img
           loading="lazy"
-          className="h-64 w-full object-cover object-center"
+          className="h-64 w-full object-cover object-center hover:scale-110 duration-800 transition-all"
           src={`${API_URL}/uploads/500_${product_images[0].name}`}
           alt={name}
         />

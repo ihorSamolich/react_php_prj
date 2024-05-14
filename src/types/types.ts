@@ -38,9 +38,9 @@ export interface Product extends Base {
 export interface CreateProduct {
   name: string;
   description: string;
-  price: number;
+  price: string;
   category_id: number;
-  product_images: File[];
+  product_images?: File[];
 }
 
 export interface ProductWithDiscount extends Product {
@@ -82,12 +82,6 @@ export interface User extends Base {
   image: string;
   name: string;
   phone: string;
-}
-
-export interface LoginGoogle {
-  email: string;
-  name: string;
-  picture: string;
 }
 
 export interface LoginResponse {

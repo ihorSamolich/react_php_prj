@@ -17,7 +17,7 @@ const ImageSortableItem = (props: ImageSortableItemProps) => {
       ref={setNodeRef}
       {...attributes}
       {...listeners}
-      style={{ transform: CSS.Transform.toString(transform), transition: transition }}
+      style={{ transform: CSS.Transform.toString(transform), transition: transition, cursor: "grab" }}
     >
       <div className="relative">
         <button

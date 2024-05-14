@@ -13,7 +13,7 @@ const Discounts = () => {
         </span>
       </p>
 
-      <div className="container grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5   mx-auto">
+      <div className="container grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-auto">
         {isLoading && Array.from(Array(4).keys()).map((index) => <DiscountCardSkeleton key={index} />)}
         {data?.slice(0, 4).map((product) => <DiscountCard key={product.id} {...product} />)}
       </div>

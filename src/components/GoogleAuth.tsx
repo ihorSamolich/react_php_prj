@@ -18,7 +18,7 @@ const GoogleAuth = () => {
       token: credentialResponse.credential || "",
     });
 
-    if ("data" in res) {
+    if (res && "data" in res && res.data) {
       localStorage.setItem("authToken", res.data.token);
 
       dispatch(

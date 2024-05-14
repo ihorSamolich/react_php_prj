@@ -47,10 +47,8 @@ const CategoryCard = (props: CategoryCardProps) => {
         loading="lazy"
       />
       <div className="flex flex-grow flex-col overflow-hidden m-5">
-        <h5 className="mb-2 text-2xl font-bold uppercase truncate tracking-tight text-gray-900 dark:text-white">
-          {name}
-        </h5>
-        <p className="mb-3 flex-grow font-normal truncate text-gray-700 dark:text-gray-400">{description}</p>
+        <h5 className="mb-2 text-2xl font-bold uppercase truncate tracking-tight text-black">{name}</h5>
+        <p className="mb-3 flex-grow font-normal truncate text-gray-700">{description}</p>
       </div>
     </div>
   );

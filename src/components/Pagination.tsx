@@ -27,7 +27,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
 
   return (
     <>
-      <div className="w-full pt-3 inline-flex items-center justify-center">
+      <div className="w-full p-3 inline-flex items-center justify-center">
         <PaginationArrow
           direction="left"
           onClick={() => handlePageChange(currentPage - 1)}

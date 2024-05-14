@@ -10,16 +10,19 @@ import Title from "components/ui/title.tsx";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useGetCategoryNamesQuery } from "services/category.ts";
+import { useAddProductMutation } from "services/products.ts";
 import { CreateProductSchema, CreateProductSchemaType } from "types/zod";
+import showToast from "utils/toastUtils.ts";
 
 type CreateProductProps = {
   open: boolean;
   close: () => void;
 };
 const CreateProduct = (props: CreateProductProps) => {
-  const { open } = props;
+  const { open, close } = props;
   const { data: categories } = useGetCategoryNamesQuery();
   const [files, setFiles] = useState<File[]>([]);
+  const [createProduct] = useAddProductMutation();
 
   const {
     register,
@@ -77,8 +80,15 @@ const CreateProduct = (props: CreateProductProps) => {
       });
       return;
     }
-
-    console.log(data);
+    try {
+      await createProduct({ ...data }).unwrap();
+      showToast(`Category ${data.name} successful created!`, "success");
+      close();
+    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      showToast(`Error created ${data.name} category! ${err.error}`, "error");
+    }
   });
 
   const onReset = () => {

@@ -1,6 +1,7 @@
 import { IconEdit, IconShoppingCart, IconTrash } from "@tabler/icons-react";
 import { DropdownMenu, DropdownMenuItem } from "components/ui/dropdownMenu.tsx";
 import Text from "components/ui/text.tsx";
+import { Link } from "react-router-dom";
 import { Product } from "types/types.ts";
 import { API_URL } from "utils/apiUrl.ts";
 
@@ -8,7 +9,10 @@ const ProductCard = (product: Product) => {
   const { name, product_images, price } = product;
 
   return (
-    <div className="border border-gray-200 max-w-[315px] bg-white shadow-2xl rounded-2xl cursor-pointer">
+    <Link
+      to={`/product/${product.id}`}
+      className="border border-gray-200 max-w-[315px] bg-white shadow-2xl rounded-2xl cursor-pointer duration-500 hover:scale-105 hover:shadow-xl"
+    >
       <div className="relative rounded-t-2xl w-full overflow-hidden">
         <div className="absolute top-1 right-1 z-10">
           <DropdownMenu>
@@ -46,7 +50,7 @@ const ProductCard = (product: Product) => {
           <IconShoppingCart />
         </Text>
       </button>
-    </div>
+    </Link>
   );
 };
 

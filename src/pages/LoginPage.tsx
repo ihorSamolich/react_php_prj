@@ -31,7 +31,7 @@ const LoginPage = () => {
   const onSubmit = handleSubmit(async (data) => {
     const res = await login(data);
 
-    if ("data" in res) {
+    if (res && "data" in res && res.data) {
       localStorage.setItem("authToken", res.data.token);
 
       dispatch(
