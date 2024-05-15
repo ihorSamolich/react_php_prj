@@ -60,10 +60,10 @@ const CategoriesPage = () => {
   return (
     <div>
       <div className="mb-3 flex flex-col sm:flex-row-reverse justify-between gap-y-3">
-        <Button variant="outlined" size="lg" onClick={() => setCreateModalOpen(true)}>
-          <IconPencilPlus />
-          Add new category
-        </Button>
+        {/*<Button variant="outlined" size="lg" onClick={() => setCreateModalOpen(true)}>*/}
+        {/*  <IconPencilPlus />*/}
+        {/*  Add new category*/}
+        {/*</Button>*/}
 
         <Input
           defaultValue={searchParams.get("search") || ""}
@@ -82,10 +82,10 @@ const CategoriesPage = () => {
         remove={handleDeleteCategory}
         isLoading={isLoading}
       />
-      {createModalOpen && <CreateCategory open={createModalOpen} close={() => setCreateModalOpen(false)} />}
-      {editModalOpen && currentCategory && (
-        <CategoryEdit id={currentCategory} open={editModalOpen} close={() => setEditModalOpen(false)} />
-      )}
+      {/*{createModalOpen && <CreateCategory open={createModalOpen} close={() => setCreateModalOpen(false)} />}*/}
+      {/*{editModalOpen && currentCategory && (*/}
+      {/*  <CategoryEdit id={currentCategory} open={editModalOpen} close={() => setEditModalOpen(false)} />*/}
+      {/*)}*/}
     </div>
   );
 };

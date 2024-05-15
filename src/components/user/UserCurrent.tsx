@@ -16,7 +16,7 @@ const UserCurrent = (props: CurrentUser) => {
         src={`${API_URL}/uploads/100_${image}`}
         alt={email}
       />
-      <p className="hidden sm:block text-sm font-semibold leading-6 text-gray-900">{name}</p>
+      <p className="font-title hidden sm:block text-sm font-semibold leading-6 text-gray-900">{name}</p>
       <Button size="icon" variant="icon" aria-label="exit button" onClick={() => dispatch(logOut())}>
         <IconLogout />
       </Button>

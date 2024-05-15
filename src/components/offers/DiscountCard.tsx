@@ -1,14 +1,15 @@
 import Text from "components/ui/text.tsx";
 import React from "react";
+import { Link } from "react-router-dom";
 import { ProductWithDiscount } from "types/types.ts";
 import { API_URL } from "utils/apiUrl.ts";
 import { calculateDaysRemaining } from "utils/calculateDaysRemaining.ts";
 
 const DiscountCard: React.FC<ProductWithDiscount> = (props) => {
-  const { name, product_images, discount_percentage, discount_end_date } = props;
+  const { id, name, product_images, discount_percentage, discount_end_date } = props;
 
   return (
-    <div className="cursor-pointer">
+    <Link to={`/product/${id}`} className="cursor-pointer">
       <div className="relative rounded-2xl w-full overflow-hidden">
         <img
           loading="lazy"
@@ -38,7 +39,7 @@ const DiscountCard: React.FC<ProductWithDiscount> = (props) => {
           {calculateDaysRemaining(discount_end_date)} days Remaining
         </Text>
       </div>
-    </div>
+    </Link>
   );
 };
 

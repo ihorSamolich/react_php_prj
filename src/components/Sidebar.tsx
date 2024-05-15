@@ -1,6 +1,5 @@
 import {
   IconDashboard,
-  IconHome,
   IconHomeStats,
   IconListCheck,
   IconTruckDelivery,
@@ -20,28 +19,23 @@ type MenuItem = {
 
 const menu: MenuItem[] = [
   {
-    title: "Home",
-    path: "/",
-    icon: <IconHome />,
-  },
-  {
     title: "Users",
-    path: "/users",
+    path: "/admin/users",
     icon: <IconUsers />,
   },
   {
     title: "Categories",
-    path: "/categories",
+    path: "/admin/categories",
     icon: <IconListCheck />,
   },
   {
     title: "Stats",
-    path: "/stats",
+    path: "/admin/stats",
     icon: <IconHomeStats />,
   },
   {
     title: "Orders",
-    path: "/orders",
+    path: "/admin/orders",
     icon: <IconTruckDelivery />,
   },
 ];

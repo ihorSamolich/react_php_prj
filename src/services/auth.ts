@@ -20,6 +20,7 @@ export const authApi = createApi({
         userFormData.append("email", user.email);
         userFormData.append("phone", user.phone);
         userFormData.append("password", user.password);
+        userFormData.append("recaptchaToken", user.recaptchaToken);
 
         return {
           url: "/register",
@@ -30,7 +31,7 @@ export const authApi = createApi({
       invalidatesTags: ["Auth"],
     }),
 
-    login: builder.mutation<LoginResponse, { email: string; password: string }>({
+    login: builder.mutation<LoginResponse, { email: string; password: string; recaptchaToken: string }>({
       query: (data) => {
         return {
           url: "/login",

@@ -22,7 +22,7 @@ const CreateProduct = (props: CreateProductProps) => {
   const { open, close } = props;
   const { data: categories } = useGetCategoryNamesQuery();
   const [files, setFiles] = useState<File[]>([]);
-  const [createProduct] = useAddProductMutation();
+  const [createProduct, { isLoading }] = useAddProductMutation();
 
   const {
     register,
@@ -153,7 +153,7 @@ const CreateProduct = (props: CreateProductProps) => {
         {errors?.product_images && <FormError errorMessage={errors?.product_images?.message as string} />}
 
         <div className="flex w-full items-center justify-center gap-5">
-          <Button size="lg" type="submit">
+          <Button disabled={isLoading} size="lg" type="submit">
             <IconCirclePlus />
             Create
           </Button>

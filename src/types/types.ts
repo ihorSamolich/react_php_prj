@@ -94,6 +94,7 @@ export interface CreateUser {
   email: string;
   password: string;
   phone: string;
+  recaptchaToken: string;
 }
 
 export interface CurrentUser {

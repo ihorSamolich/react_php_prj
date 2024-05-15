@@ -5,6 +5,7 @@ import FormError from "components/ui/formError.tsx";
 import { Input } from "components/ui/input.tsx";
 import Label from "components/ui/label.tsx";
 import { ChangeEvent, useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useAddUserMutation } from "services/auth.ts";
@@ -17,6 +18,8 @@ const RegisterPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<CreateUserSchemaType>({ resolver: zodResolver(CreateUserSchema) });
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [addUser, { isLoading }] = useAddUserMutation();
   const [previewImage, setPreviewImage] = useState<string | undefined>();
@@ -36,8 +39,15 @@ const RegisterPage = () => {
   };
 
   const onSubmit = handleSubmit(async (data) => {
+    if (!executeRecaptcha) {
+      showToast(`Error registration. Recaptcha not loaded!`, "error");
+      return;
+    }
+
     try {
-      await addUser({ ...data, image: data.image[0] }).unwrap();
+      const recaptchaToken = await executeRecaptcha();
+
+      await addUser({ ...data, image: data.image[0], recaptchaToken }).unwrap();
       showToast(`User ${data.name} successful created!`, "success");
       navigate("/login");
     } catch (err) {
@@ -51,7 +61,7 @@ const RegisterPage = () => {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="mx-auto h-10 w-auto" src="shop.ico" alt="Your Company" />
+          <img className="mx-auto h-10 w-auto" src="/shop.ico" alt="Your Company" />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Create new your account
           </h2>
@@ -115,7 +125,7 @@ const RegisterPage = () => {
 
             <div>
               <Button disabled={isLoading} variant="yellow" size="full" type="submit">
-                Sign in
+                Create account
               </Button>
             </div>
           </form>
